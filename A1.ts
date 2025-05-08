@@ -27,8 +27,8 @@ class Vehicle {
 		this.year = year;
 	}
 
-	public getInfo(): string {
-		return `Make: ${this.make}, Year: ${this.year}`;
+	public getInfo(): void {
+		console.log(`Make: ${this.make}, Year: ${this.year}`);
 	}
 }
 
@@ -40,8 +40,8 @@ class Car extends Vehicle {
 		this.model = model;
 	}
 
-	public getModel(): string {
-		return `Model: ${this.model}`;
+	public getModel(): void {
+		console.log(`Model: ${this.model}`);
 	}
 }
 
@@ -50,11 +50,6 @@ function processValue(value: string | number): number {
 		return value.length;
 	} else typeof value === "number";
 	return value * 2;
-}
-
-interface Product {
-	name: string;
-	price: number;
 }
 
 function getMostExpensiveProduct(products: Product[]): Product | null {
@@ -70,18 +65,8 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
 	return mostExpensiveProd || null;
 }
 
-enum Day {
-	Monday,
-	Tuesday,
-	Wednesday,
-	Thursday,
-	Friday,
-	Saturday,
-	Sunday,
-}
-
 function getDayType(day: Day): string {
-	return day === Day.Friday || day === Day.Saturday ? "Weekend" : "Weekday";
+	return day === Day.Saturday || day === Day.Sunday ? "Weekend" : "Weekday";
 }
 
 async function squareAsync(n: number): Promise<number> {
